@@ -4,17 +4,11 @@ import tailwindcss from '@tailwindcss/vite'
 export default defineNuxtConfig({
   compatibilityDate: '2025-05-15',
   devtools: { enabled: true },
-  css: ['~/assets/css/tailwind.css'],
+  css: ['~/assets/css/tailwind.css', '~/assets/css/fonts.css'],
 
   // Ensure server routes are registered
   srcDir: '.',
   
-  // Server configuration
-  server: {
-    port: 3000,
-    host: '0.0.0.0',
-  },
-
   // Vite configuration
   vite: {
     plugins: [
@@ -43,5 +37,11 @@ export default defineNuxtConfig({
   experimental: {
     viewTransition: true,
     renderJsonPayloads: true
+  },
+  runtimeConfig: {
+    public: {
+      supabaseUrl: process.env.SUPABASE_URL,
+      supabaseKey: process.env.SUPABASE_KEY
+    }
   }
 })
