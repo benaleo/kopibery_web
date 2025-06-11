@@ -1,6 +1,6 @@
 <template>
-  <section class="w-full mt-4">
-    <div class="w-full lg:max-w-[80vw] text-center mx-auto">
+  <section class="w-full mt-24 lg:mt-4">
+    <div class="w-full lg:max-w-[80vw] text-center mx-auto px-4 lg:px-0">
       <!-- Text 1 -->
       <p class="text-2xl md:text-4xl font-semibold gradient-brown py-2 mb-12">
         Tentang Kami
@@ -18,11 +18,16 @@
       </p>
     </div>
     <!-- Cover image -->
-    <div class="w-full h-[400px] mt-12">
+    <div class="relative w-full h-auto lg:h-[400px] mt-12 overflow-hidden rounded-2xl">
       <img
-          src="@/assets/images/about-page-1.png"
-          alt="About"
-          class="w-full h-auto object-cover"
+        src="@/assets/images/about-page-1.png"
+        alt="About"
+        class="w-full h-auto object-cover"
+      />
+      <img
+        src="@/assets/images/tonton-vlog.png"
+        alt="Button"
+        class="absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[70vw] lg:w-full max-w-[200px] hover:opacity-80"
       />
     </div>
     <!-- Text 2 -->
@@ -40,14 +45,16 @@
       </p>
     </div>
     <!-- List image -->
-    <div class="flex justify-between px-4 md:px-8 py-8 space-x-8">
+    <div
+      class="flex flex-col items-center gap-2 lg:flex-row justify-between px-4 md:px-8 py-8"
+    >
       <img
-          v-for="(image, index) in imageList"
-          :key="index"
-          :src="image.src"
-          :alt="image.alt"
-          class="max-w-[300px] h-auto"
-          :class="image.type === 'video' ? 'w-[40vw]' : ''"
+        v-for="(image, index) in imageList"
+        :key="index"
+        :src="image.src"
+        :alt="image.alt"
+        class="flex-1 max-w-[300px] h-auto"
+        :class="image.type === 'video' ? 'w-[40vw]' : ''"
       />
     </div>
     <!-- Kenapa harus kami -->
@@ -55,7 +62,7 @@
       <div class="text-2xl font-semibold gradient-brown w-fit">
         Kenapa Harus Kami ?
       </div>
-      <div class="w-full grid grid-cols-3 grid-row-2 gap-6">
+      <div class="w-full grid lg:grid-cols-3 lg:grid-row-2 gap-6">
         <div v-for="(why, index) in whyList" :key="index">
           <div class="text-4xl gradient-brown font-bold w-fit">
             {{ why.id }}
@@ -67,13 +74,11 @@
         </div>
       </div>
     </div>
-
-
   </section>
 </template>
 
 <script setup lang="ts">
-import type {ImageItem, WhyList} from "~/types/global.type";
+import type { ImageItem, WhyList } from "~/types/global.type";
 
 const config = useRuntimeConfig();
 const baseUrl = config.public.baseUrl;
@@ -100,44 +105,46 @@ const whyList: WhyList[] = [
   {
     id: "01",
     title: "Aman",
-    description: "Worem ipsum dolor sit amet, consectetur adipiscing elit. Etiam eu turpis molestie, dictum est a, mattis tellus. Sed dignissim, metus nec fringilla accumsan, risus sem sollicitudin lacus, ut interdum tellus elit sed risus.",
+    description:
+      "Worem ipsum dolor sit amet, consectetur adipiscing elit. Etiam eu turpis molestie, dictum est a, mattis tellus. Sed dignissim, metus nec fringilla accumsan, risus sem sollicitudin lacus, ut interdum tellus elit sed risus.",
     icon: "",
   },
   {
     id: "02",
     title: "Terpercaya",
-    description: "Worem ipsum dolor sit amet, consectetur adipiscing elit. Etiam eu turpis molestie, dictum est a, mattis tellus. Sed dignissim, metus nec fringilla accumsan, risus sem sollicitudin lacus, ut interdum tellus elit sed risus.",
+    description:
+      "Worem ipsum dolor sit amet, consectetur adipiscing elit. Etiam eu turpis molestie, dictum est a, mattis tellus. Sed dignissim, metus nec fringilla accumsan, risus sem sollicitudin lacus, ut interdum tellus elit sed risus.",
     icon: "",
   },
   {
     id: "03",
     title: "Biji Berkualitas",
-    description: "Worem ipsum dolor sit amet, consectetur adipiscing elit. Etiam eu turpis molestie, dictum est a, mattis tellus. Sed dignissim, metus nec fringilla accumsan, risus sem sollicitudin lacus, ut interdum tellus elit sed risus.",
+    description:
+      "Worem ipsum dolor sit amet, consectetur adipiscing elit. Etiam eu turpis molestie, dictum est a, mattis tellus. Sed dignissim, metus nec fringilla accumsan, risus sem sollicitudin lacus, ut interdum tellus elit sed risus.",
     icon: "",
   },
   {
     id: "04",
     title: "Layanan Prima",
-    description: "Worem ipsum dolor sit amet, consectetur adipiscing elit. Etiam eu turpis molestie, dictum est a, mattis tellus. Sed dignissim, metus nec fringilla accumsan, risus sem sollicitudin lacus, ut interdum tellus elit sed risus.",
+    description:
+      "Worem ipsum dolor sit amet, consectetur adipiscing elit. Etiam eu turpis molestie, dictum est a, mattis tellus. Sed dignissim, metus nec fringilla accumsan, risus sem sollicitudin lacus, ut interdum tellus elit sed risus.",
     icon: "",
   },
   {
     id: "05",
     title: "Petani Lokal",
-    description: "Worem ipsum dolor sit amet, consectetur adipiscing elit. Etiam eu turpis molestie, dictum est a, mattis tellus. Sed dignissim, metus nec fringilla accumsan, risus sem sollicitudin lacus, ut interdum tellus elit sed risus.",
+    description:
+      "Worem ipsum dolor sit amet, consectetur adipiscing elit. Etiam eu turpis molestie, dictum est a, mattis tellus. Sed dignissim, metus nec fringilla accumsan, risus sem sollicitudin lacus, ut interdum tellus elit sed risus.",
     icon: "",
   },
   {
     id: "06",
     title: "Mutu Tinggi",
-    description: "Worem ipsum dolor sit amet, consectetur adipiscing elit. Etiam eu turpis molestie, dictum est a, mattis tellus. Sed dignissim, metus nec fringilla accumsan, risus sem sollicitudin lacus, ut interdum tellus elit sed risus.",
+    description:
+      "Worem ipsum dolor sit amet, consectetur adipiscing elit. Etiam eu turpis molestie, dictum est a, mattis tellus. Sed dignissim, metus nec fringilla accumsan, risus sem sollicitudin lacus, ut interdum tellus elit sed risus.",
     icon: "",
   },
-
-]
-
-
+];
 </script>
-
 
 <style scoped></style>
