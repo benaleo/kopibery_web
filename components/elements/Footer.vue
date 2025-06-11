@@ -1,7 +1,7 @@
 <template>
-  <div class="hidden md:relative w-full h-56 bg-black rounded-t-[80px]">
+  <div class="md:relative w-full min-h-56 bg-black rounded-t-[80px]">
     <div
-      class="max-w-[1360px] flex justify-between items-start mx-auto pt-12 px-12 overflow-hidden"
+      class="max-w-[1360px] flex justify-between items-start mx-auto pt-12 px-12 overflow-hidden gap-8"
     >
       <!-- logo -->
       <div class="flex flex-col">
@@ -16,7 +16,7 @@
         >
       </div>
       <!-- menu -->
-      <div class="flex items-start space-x-8 mt-8">
+      <div class="flex items-start space-x-8 flex-wrap md:flex-nowrap">
         <NuxtLink
           to="/"
           class="footer-menu poppins-semibold"
@@ -57,7 +57,7 @@
         </div>
       </div>
     </div>
-    <div class="absolute bottom-0 left-0 right-0 h-8 bg-[#473630]">
+    <div class="relative mt-8 bottom-0 left-0 right-0 h-8 bg-[#473630]">
       <div class="flex items-center h-full text-white text-sm justify-center">
         Copyright © Kopibery 2025
       </div>
