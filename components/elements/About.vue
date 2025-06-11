@@ -51,13 +51,8 @@
 </template>
 
 <script setup lang="ts">
+import type { ImageItem } from "~/types/global.type";
 import CTASeeButton from "./CTASeeButton.vue";
-
-interface ImageItem {
-  src: string;
-  alt: string;
-  type: "image" | "video";
-}
 
 const config = useRuntimeConfig();
 const baseUrl = config.public.baseUrl;

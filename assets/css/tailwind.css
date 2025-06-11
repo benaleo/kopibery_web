@@ -136,4 +136,8 @@
   .footer-menu {
     @apply text-white hover:text-gray-300 transition-colors;
   }
+
+  .gradient-brown {
+    @apply bg-gradient-to-l from-[#F88F01] via-[#F29B35] to-[#723E29] bg-clip-text text-transparent;
+  }
 }
