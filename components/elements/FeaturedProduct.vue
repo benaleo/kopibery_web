@@ -57,27 +57,30 @@
 <script setup lang="ts">
 import CTASeeProduct from "~/components/elements/CTASeeButton.vue";
 
+const config = useRuntimeConfig();
+const baseUrl = config.public.baseUrl;
+
 const products = [
   {
     name: 'Kopi Arabika',
     origin: 'Gunung Bale, Jawa Barat',
     price: 120000,
     rating: '4.9',
-    image: new URL('@/assets/images/featured-product.png', import.meta.url).href
+    image: baseUrl + '/_nuxt/assets/images/featured-product.png'
   },
   {
     name: 'Kopi Robusta',
     origin: 'Gunung Bale, Jawa Barat',
     price: 110000,
     rating: '4.8',
-    image: new URL('@/assets/images/featured-product.png', import.meta.url).href
+    image: baseUrl + '/_nuxt/assets/images/featured-product.png'
   },
   {
     name: 'Kopi Liberika',
     origin: 'Gunung Bale, Jawa Barat',
     price: 115000,
     rating: '4.7',
-    image: new URL('@/assets/images/featured-product.png', import.meta.url).href
+    image: baseUrl + '/_nuxt/assets/images/featured-product.png'
   }
 ];
 </script>

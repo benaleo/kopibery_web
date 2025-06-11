@@ -62,21 +62,25 @@
 <script setup lang="ts">
 import CTASeeButton from './CTASeeButton.vue';
 
+
+const config = useRuntimeConfig();
+const baseUrl = config.public.baseUrl;
+
 const features = [
   {
     title: 'Adaptif',
     description: 'Mampu beradaptasi dengan berbagai jenis mesin kopi dan teknik penyajian',
-    icon: new URL('@/assets/images/bean-link.svg', import.meta.url).href
+    icon: baseUrl + '/_nuxt/assets/images/bean-link.svg'
   },
   {
     title: 'Responsif',
     description: 'Cepat tanggap dalam melayani pelanggan dan menangani pesanan',
-    icon: new URL('@/assets/images/bean-link.svg', import.meta.url).href
+    icon: baseUrl + '/_nuxt/assets/images/bean-link.svg'
   },
   {
     title: 'Profesional',
     description: 'Bersertifikat dan berpengalaman dalam dunia kopi profesional',
-    icon: new URL('@/assets/images/bean-link.svg', import.meta.url).href
+    icon: baseUrl + '/_nuxt/assets/images/bean-link.svg'
   }
 ];
 </script>

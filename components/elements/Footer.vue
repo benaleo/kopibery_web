@@ -33,7 +33,7 @@
           >Barista</NuxtLink
         >
         <NuxtLink
-          to="/reparasi-alat"
+          to="/reparasi"
           class="footer-menu poppins-semibold"
           >Reparasi Alat</NuxtLink
         >

@@ -32,7 +32,7 @@
           <img
             src="@/assets/images/about-1.png"
             alt="About"
-            class="w-[300px] h-auto"
+            class="flex-1 h-auto"
           />
         </div>
       </div>
@@ -42,7 +42,7 @@
           :key="index"
           :src="image.src"
           :alt="image.alt"
-          class="w-full h-auto"
+          class="max-w-[300px] h-auto"
           :class="image.type === 'video' ? 'w-[40vw]' : ''"
         />
       </div>
@@ -59,19 +59,22 @@ interface ImageItem {
   type: "image" | "video";
 }
 
+const config = useRuntimeConfig();
+const baseUrl = config.public.baseUrl;
+
 const imageList: ImageItem[] = [
   {
-    src: new URL("@/assets/images/about-2.png", import.meta.url).href,
+    src: baseUrl + '/_nuxt/assets/images/about-2.png',
     alt: "About us image 1",
     type: "image" as const,
   },
   {
-    src: new URL("@/assets/images/about-3.png", import.meta.url).href,
+    src: baseUrl + '/_nuxt/assets/images/about-3.png',
     alt: "About us image 2",
     type: "image" as const,
   },
   {
-    src: new URL("@/assets/images/about-4.png", import.meta.url).href,
+    src: baseUrl + '/_nuxt/assets/images/about-4.png',
     alt: "About us image 3",
     type: "image" as const,
   },

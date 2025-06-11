@@ -57,26 +57,29 @@
 <script setup lang="ts">
 import CTASeeButton from './CTASeeButton.vue';
 
+const config = useRuntimeConfig();
+const baseUrl = config.public.baseUrl;
+
 const features = [
   {
     title: "Profesional",
-    icon: new URL("@/assets/images/bean-link.svg", import.meta.url).href,
+    icon: baseUrl + '/_nuxt/assets/images/bean-link.svg',
   },
   {
     title: "Cepat",
-    icon: new URL("@/assets/images/bean-link.svg", import.meta.url).href,
+    icon: baseUrl + '/_nuxt/assets/images/bean-link.svg',
   },
   {
     title: "Terjangkau",
-    icon: new URL("@/assets/images/bean-link.svg", import.meta.url).href,
+    icon: baseUrl + '/_nuxt/assets/images/bean-link.svg',
   },
   {
     title: "Bergaransi",
-    icon: new URL("@/assets/images/bean-link.svg", import.meta.url).href,
+    icon: baseUrl + '/_nuxt/assets/images/bean-link.svg',
   },
   {
     title: "Aman",
-    icon: new URL("@/assets/images/bean-link.svg", import.meta.url).href,
+    icon: baseUrl + '/_nuxt/assets/images/bean-link.svg',
   },
 ];
 </script>
