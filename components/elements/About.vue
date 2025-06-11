@@ -30,7 +30,7 @@
         </div>
         <div class="w-full flex justify-end">
           <img
-            src="@/assets/images/about-1.png"
+            :src="about1Image"
             alt="About"
             class="flex-1 h-auto"
           />
@@ -54,24 +54,45 @@
 import type { ImageItem } from "~/types/global.type";
 import CTASeeButton from "./CTASeeButton.vue";
 
+// import assets
+import engineer2Image from '@/assets/images/engineer-2.png';
+import about1Image from '@/assets/images/about-1.png';
+import about2Image from '@/assets/images/about-2.png';
+import about3Image from '@/assets/images/about-3.png';
+import about4Image from '@/assets/images/about-4.png';
+
 const config = useRuntimeConfig();
 const baseUrl = config.public.baseUrl;
 
 const imageList: ImageItem[] = [
   {
-    src: baseUrl + '/_nuxt/assets/images/about-2.png',
-    alt: "About us image 1",
-    type: "image" as const,
-  },
-  {
-    src: baseUrl + '/_nuxt/assets/images/about-3.png',
+    src: about2Image,
     alt: "About us image 2",
     type: "image" as const,
   },
   {
-    src: baseUrl + '/_nuxt/assets/images/about-4.png',
+    src: about3Image,
     alt: "About us image 3",
     type: "image" as const,
   },
+  {
+    src: about4Image,
+    alt: "About us image 4",
+    type: "image" as const,
+  },
 ];
+
+// Preload images
+const preloadImages = () => {
+  const images = [about1Image, about2Image, about3Image, about4Image];
+  images.forEach(src => {
+    const img = new Image();
+    img.src = src;
+  });
+};
+
+onMounted(() => {
+  preloadImages();
+});
+
 </script>

@@ -10,28 +10,32 @@
 
       <!-- Product Cards Section with Background -->
       <div class="relative z-0">
-        <!-- Background shape -->
-        <!--        <div class="absolute inset-x-0 bottom-0 h-[200px] bg-gradient-to-r from-[#F88F01] to-[#723E29] rounded-2xl z-[-1]"></div>-->
         <div class="absolute inset-x-0 bottom-0 z-[-1] flex items-center justify-center">
-          <img src="@/assets/images/featured-product-bg.png" alt="featured-product-bg"
-               class="w-full h-full object-cover">
+          <img 
+            :src="featuredProductBg" 
+            alt="featured-product-bg"
+            class="w-full h-full object-cover"
+            loading="lazy"
+          >
         </div>
-
 
         <!-- Product Cards -->
         <div class="flex flex-row justify-center items-end gap-8 lg:gap-12 pb-12 relative z-10">
           <div v-for="(product, index) in products" :key="index" class="flex flex-col items-center">
             <!-- Product Image with Circle Background -->
             <div class="relative mb-4">
-              <div
-                  class="relative w-40 h-40 md:w-48 md:h-48 bg-[#FCEFCE] rounded-full flex items-center justify-center mb-4">
-                <img :src="product.image" :alt="product.name" class="absolute bottom-4">
+              <div class="relative w-40 h-40 md:w-48 md:h-48 bg-[#FCEFCE] rounded-full flex items-center justify-center mb-4">
+                <img 
+                  :src="product.image" 
+                  :alt="product.name" 
+                  class="absolute bottom-4"
+                  loading="lazy"
+                >
               </div>
               <!-- Rating Stars -->
-              <div
-                  class="absolute bottom-12 right-[-2.4rem] bg-white rounded-lg flex justify-center items-center px-2 py-1">
+              <div class="absolute bottom-12 right-[-2.4rem] bg-white rounded-lg flex justify-center items-center px-2 py-1">
                 <div class="flex justify-center space-x-1 mb-2">
-                  <img src="@/assets/images/star.png" alt="star" class="w-4 h-4">
+                  <img :src="starIcon" alt="star" class="w-4 h-4" loading="lazy">
                 </div>
                 <p class="text-sm">({{ product.rating }})</p>
               </div>
@@ -49,42 +53,54 @@
       <div class="flex justify-center w-full mt-8">
         <CTASeeProduct/>
       </div>
-
     </div>
   </section>
 </template>
 
 <script setup lang="ts">
+import { ref, onMounted } from 'vue';
 import CTASeeProduct from "~/components/elements/CTASeeButton.vue";
 
-const config = useRuntimeConfig();
-const baseUrl = config.public.baseUrl;
+// Import images directly
+import featuredProductImage from '@/assets/images/featured-product.png';
+import featuredProductBg from '@/assets/images/featured-product-bg.png';
+import starIcon from '@/assets/images/star.png';
 
-const products = [
+const products = ref([
   {
     name: 'Kopi Arabika',
     origin: 'Gunung Bale, Jawa Barat',
     price: 120000,
     rating: '4.9',
-    image: baseUrl + '/_nuxt/assets/images/featured-product.png'
+    image: featuredProductImage,
   },
   {
     name: 'Kopi Robusta',
     origin: 'Gunung Bale, Jawa Barat',
     price: 110000,
     rating: '4.8',
-    image: baseUrl + '/_nuxt/assets/images/featured-product.png'
+    image: featuredProductImage,
   },
   {
     name: 'Kopi Liberika',
     origin: 'Gunung Bale, Jawa Barat',
     price: 115000,
     rating: '4.7',
-    image: baseUrl + '/_nuxt/assets/images/featured-product.png'
+    image: featuredProductImage,
   }
-];
-</script>
+]);
 
-<style scoped>
-/* Custom styles if needed */
-</style>
+
+// Preload images
+const preloadImages = () => {
+  const images = [featuredProductImage, featuredProductBg, starIcon];
+  images.forEach(src => {
+    const img = new Image();
+    img.src = src;
+  });
+};
+
+onMounted(() => {
+  preloadImages();
+});
+</script>

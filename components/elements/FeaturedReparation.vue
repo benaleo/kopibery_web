@@ -4,13 +4,13 @@
     <div class="absolute left-4 top-0">
       <!-- Decorative Element -->
       <div class="absolute bottom-0 left-0 h-[60%] aspect-video bg-[#CCA387] opacity-40 rounded-2xl z-[-1]"></div>
-      <img src="@/assets/images/engineer-1.png" alt="Featured Reparation" class="ml-4 w-full h-auto max-h-[200px] rounded-2xl" />
+      <img :src="engineer1Image" alt="Featured Reparation" class="ml-4 w-full h-auto max-h-[200px] rounded-2xl" />
     </div>
 
     <!-- Right Image -->
     <div class="absolute right-4 top-1/2 transform -translate-y-1/2">
       <div class="absolute bottom-0 right-0 h-[60%] aspect-video bg-[#CCA387] opacity-40 rounded-2xl z-[-1]"></div>
-      <img src="@/assets/images/engineer-2.png" alt="Featured Reparation" class="mr-4 w-full h-auto max-h-[200px] rounded-2xl" />
+      <img :src="engineer2Image" alt="Featured Reparation" class="mr-4 w-full h-auto max-h-[200px] rounded-2xl" />
     </div>
 
     <div class="lg:max-w-[60vw] mx-auto flex justify-center items-center">
@@ -57,29 +57,48 @@
 <script setup lang="ts">
 import CTASeeButton from './CTASeeButton.vue';
 
+// import assets
+import beanLinkImage from '@/assets/images/bean-link.svg';
+import engineer1Image from '@/assets/images/engineer-1.png';
+import engineer2Image from '@/assets/images/engineer-2.png';
+
 const config = useRuntimeConfig();
 const baseUrl = config.public.baseUrl;
 
 const features = [
   {
     title: "Profesional",
-    icon: baseUrl + '/_nuxt/assets/images/bean-link.svg',
+    icon: beanLinkImage,
   },
   {
     title: "Cepat",
-    icon: baseUrl + '/_nuxt/assets/images/bean-link.svg',
+    icon: beanLinkImage,
   },
   {
     title: "Terjangkau",
-    icon: baseUrl + '/_nuxt/assets/images/bean-link.svg',
+    icon: beanLinkImage,
   },
   {
     title: "Bergaransi",
-    icon: baseUrl + '/_nuxt/assets/images/bean-link.svg',
+    icon: beanLinkImage,
   },
   {
     title: "Aman",
-    icon: baseUrl + '/_nuxt/assets/images/bean-link.svg',
+    icon: beanLinkImage,
   },
 ];
+
+
+// Preload images
+const preloadImages = () => {
+  const images = [beanLinkImage, engineer1Image, engineer2Image];
+  images.forEach(src => {
+    const img = new Image();
+    img.src = src;
+  });
+};
+
+onMounted(() => {
+  preloadImages();
+});
 </script>

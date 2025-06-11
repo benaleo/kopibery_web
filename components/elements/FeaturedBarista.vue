@@ -37,7 +37,7 @@
           <div class="relative ">
             <!-- Main Image -->
             <img
-              src="@/assets/images/featured-barista.png"
+              :src="featuredBarista"
               alt="Barista Profesional"
               class="w-[200px] h-auto rounded-2xl"
             >
@@ -62,6 +62,10 @@
 <script setup lang="ts">
 import CTASeeButton from './CTASeeButton.vue';
 
+// import image
+import beanLinkImage from '@/assets/images/bean-link.svg';
+import featuredBarista from '@/assets/images/featured-barista.png';
+
 
 const config = useRuntimeConfig();
 const baseUrl = config.public.baseUrl;
@@ -70,21 +74,30 @@ const features = [
   {
     title: 'Adaptif',
     description: 'Mampu beradaptasi dengan berbagai jenis mesin kopi dan teknik penyajian',
-    icon: baseUrl + '/_nuxt/assets/images/bean-link.svg'
+    icon: beanLinkImage
   },
   {
     title: 'Responsif',
     description: 'Cepat tanggap dalam melayani pelanggan dan menangani pesanan',
-    icon: baseUrl + '/_nuxt/assets/images/bean-link.svg'
+    icon: beanLinkImage
   },
   {
     title: 'Profesional',
     description: 'Bersertifikat dan berpengalaman dalam dunia kopi profesional',
-    icon: baseUrl + '/_nuxt/assets/images/bean-link.svg'
+    icon: beanLinkImage
   }
 ];
-</script>
 
-<style scoped>
-/* Custom styles if needed */
-</style>
+// Preload images
+const preloadImages = () => {
+  const images = [beanLinkImage, featuredBarista];
+  images.forEach(src => {
+    const img = new Image();
+    img.src = src;
+  });
+};
+
+onMounted(() => {
+  preloadImages();
+});
+</script>
