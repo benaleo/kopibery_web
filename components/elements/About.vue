@@ -32,7 +32,7 @@
           <img
             :src="about1Image"
             alt="About"
-            class=" lg:relative flex-1 max-w-[300px] h-auto opacity-20 lg:opacity-100"
+            class="absolute lg:relative flex-1 max-w-[300px] h-auto opacity-20 lg:opacity-100"
           />
         </div>
       </div>
