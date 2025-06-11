@@ -7,8 +7,12 @@
           <NuxtLink to="/" class="flex gap-2 items-center">
             <img class="w-12" src="@/assets/images/logo.svg" alt="logo" />
             <div class="flex flex-col">
-              <span class="text-xl font-bold text-gray-900 leading-none">Kopibery</span>
-              <span class="text-xs text-gray-500">Solving your coffee business</span>
+              <span class="text-xl font-bold text-gray-900 leading-none"
+                >Kopibery</span
+              >
+              <span class="text-xs text-gray-500"
+                >Solving your coffee business</span
+              >
             </div>
           </NuxtLink>
         </div>
@@ -36,11 +40,16 @@
         <!-- Login/Signup Button -->
         <div class="flex items-center">
           <NuxtLink
+            v-if="!isLoggedIn"
             to="/auth"
             class="ml-4 px-4 py-2 bg-[#6F4E37] text-white text-sm font-medium rounded-md hover:bg-[#5a3e2c] transition-colors"
           >
             Daftar / Masuk
           </NuxtLink>
+          <!-- User Avatar and Name -->
+          <span class="ml-4 px-4 py-2 text-sm font-medium text-gray-500">
+            {{ userName }}
+          </span>
         </div>
       </div>
     </div>
@@ -67,6 +76,8 @@
 </template>
 
 <script setup lang="ts">
+import { toast } from "vue-sonner";
+
 const links = [
   { name: "Kopi", href: "/kopi" },
   { name: "Barista", href: "/barista" },
@@ -74,6 +85,36 @@ const links = [
   { name: "Tentang", href: "/tentang" },
   { name: "Kontak kami", href: "/kontak" },
 ];
+
+const { $supabase } = useNuxtApp();
+const router = useRouter();
+
+const isLoggedIn = ref(false);
+const userName = ref("");
+
+onMounted(async () => {
+  try {
+    // Check for OAuth callback
+    const { data, error } = await $supabase.auth.getSession();
+
+    if (error) throw error;
+
+    if (data.session) {
+      isLoggedIn.value = true;
+      const {
+        data: { user },
+      } = await $supabase.auth.getUser();
+      console.log("User data:", user);
+      userName.value = user?.user_metadata?.full_name || "";
+      console.log("User name:", userName.value);
+    } else {
+      isLoggedIn.value = false;
+    }
+  } catch (error) {
+    console.error("Error during session verification:", error);
+    await router.replace("/auth/login");
+  }
+});
 </script>
 
 <style scoped>

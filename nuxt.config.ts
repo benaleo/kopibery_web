@@ -1,4 +1,4 @@
-// https://nuxt.com/docs/api/configuration/nuxt-config
+// nuxt.config.ts
 import tailwindcss from '@tailwindcss/vite'
 
 export default defineNuxtConfig({
@@ -6,10 +6,8 @@ export default defineNuxtConfig({
   devtools: { enabled: true },
   css: ['~/assets/css/tailwind.css', '~/assets/css/fonts.css'],
 
-  // Ensure server routes are registered
   srcDir: '.',
-  
-  // Vite configuration
+
   vite: {
     plugins: [
       tailwindcss(),
@@ -21,24 +19,37 @@ export default defineNuxtConfig({
     }
   },
 
-  // Modules
   modules: ['shadcn-nuxt'],
-  
-  // shadcn configuration
+
+  // supabase: {
+  //   url: process.env.SUPABASE_URL,
+  //   key: process.env.SUPABASE_KEY,
+  //   serviceKey: process.env.SUPABASE_SERVICE_KEY,
+  //   useSsrCookies: false,
+  //   redirectOptions: {
+  //     login: '/auth/login',
+  //     callback: '/auth/confirm',
+  //     exclude: ['/']
+  //   }
+  // },
+
   shadcn: {
     prefix: '',
     componentDir: './components/ui'
   },
-  
-  // Debug logging
+
   debug: process.env.NODE_ENV === 'development',
-  
-  // Enable experimental features if needed
+
   experimental: {
     viewTransition: true,
     renderJsonPayloads: true
   },
+
   runtimeConfig: {
+    // Private keys (only available on server-side)
+    // supabaseKey: process.env.SUPABASE_SERVICE_KEY, // if you need server-only access
+
+    // Public keys (exposed to client-side)
     public: {
       supabaseUrl: process.env.SUPABASE_URL,
       supabaseKey: process.env.SUPABASE_KEY,

@@ -8,6 +8,9 @@ importers:
 
   .:
     dependencies:
+      '@nuxtjs/supabase':
+        specifier: ^1.5.1
+        version: 1.5.1
       '@supabase/supabase-js':
         specifier: ^2.50.0
         version: 2.50.0
@@ -47,6 +50,9 @@ importers:
       vue-router:
         specifier: ^4.5.1
         version: 4.5.1(vue@3.5.16(typescript@5.8.3))
+      vue-sonner:
+        specifier: ^2.0.0
+        version: 2.0.0
 
 packages:
 
@@ -498,6 +504,9 @@ packages:
     peerDependencies:
       vue: ^3.3.4
 
+  '@nuxtjs/supabase@1.5.1':
+    resolution: {integrity: sha512-02lgmcHfFxgf/zp+fHaHZYz10WitbltuFq2CFvuxNrk+N/suMpM4lezOYbKPB0LKhYqRuFHlk3AjEd5KKje5cA==}
+
   '@oxc-parser/binding-darwin-arm64@0.72.3':
     resolution: {integrity: sha512-g6wgcfL7At4wHNHutl0NmPZTAju+cUSmSX5WGUMyTJmozRzhx8E9a2KL4rTqNJPwEpbCFrgC29qX9f4fpDnUpA==}
     engines: {node: '>=14.0.0'}
@@ -891,6 +900,11 @@ packages:
 
   '@supabase/realtime-js@2.11.10':
     resolution: {integrity: sha512-SJKVa7EejnuyfImrbzx+HaD9i6T784khuw1zP+MBD7BmJYChegGxYigPzkKX8CK8nGuDntmeSD3fvriaH0EGZA==}
+
+  '@supabase/ssr@0.6.1':
+    resolution: {integrity: sha512-QtQgEMvaDzr77Mk3vZ3jWg2/y+D8tExYF7vcJT+wQ8ysuvOeGGjYbZlvj5bHYsj/SpC0bihcisnwPrM4Gp5G4g==}
+    peerDependencies:
+      '@supabase/supabase-js': ^2.43.4
 
   '@supabase/storage-js@2.7.1':
     resolution: {integrity: sha512-asYHcyDR1fKqrMpytAS1zjyEfvxuOIp1CIXX7ji4lHHcJKqyk+sLl/Vxgm4sN6u8zvuUtae9e4kDxQP2qrwWBA==}
@@ -3632,6 +3646,9 @@ packages:
     peerDependencies:
       vue: ^3.2.0
 
+  vue-sonner@2.0.0:
+    resolution: {integrity: sha512-nvlqGGWvxEv9UnKcZxsGdKpHrODEdv3CXAJF3er+1pLC03caJt2+v9HuWtRqlBQwUr1SFttsYuwVbpbEl05n4A==}
+
   vue@3.5.16:
     resolution: {integrity: sha512-rjOV2ecxMd5SiAmof2xzh2WxntRcigkX/He4YFJ6WdRvVUrbt6DxC1Iujh10XLl8xCDRDtGKMeO3D+pRQ1PP9w==}
     peerDependencies:
@@ -4424,6 +4441,16 @@ snapshots:
       - vue-tsc
       - yaml
 
+  '@nuxtjs/supabase@1.5.1':
+    dependencies:
+      '@supabase/ssr': 0.6.1(@supabase/supabase-js@2.50.0)
+      '@supabase/supabase-js': 2.50.0
+      defu: 6.1.4
+      pathe: 2.0.3
+    transitivePeerDependencies:
+      - bufferutil
+      - utf-8-validate
+
   '@oxc-parser/binding-darwin-arm64@0.72.3':
     optional: true
 
@@ -4708,6 +4735,11 @@ snapshots:
     transitivePeerDependencies:
       - bufferutil
       - utf-8-validate
+
+  '@supabase/ssr@0.6.1(@supabase/supabase-js@2.50.0)':
+    dependencies:
+      '@supabase/supabase-js': 2.50.0
+      cookie: 1.0.2
 
   '@supabase/storage-js@2.7.1':
     dependencies:
@@ -7660,6 +7692,8 @@ snapshots:
     dependencies:
       '@vue/devtools-api': 6.6.4
       vue: 3.5.16(typescript@5.8.3)
+
+  vue-sonner@2.0.0: {}
 
   vue@3.5.16(typescript@5.8.3):
     dependencies:
