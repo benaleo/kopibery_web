@@ -92,7 +92,7 @@ const router = useRouter();
 const isLoggedIn = ref(false);
 const userName = ref("");
 
-onMounted(async () => {
+const fetchUserSession = async () => {
   try {
     // Check for OAuth callback
     const { data, error } = await $supabase.auth.getSession();
@@ -109,12 +109,26 @@ onMounted(async () => {
       console.log("User name:", userName.value);
     } else {
       isLoggedIn.value = false;
+      userName.value = "";
     }
   } catch (error) {
     console.error("Error during session verification:", error);
     await router.replace("/auth/login");
   }
-});
+};
+
+onMounted(fetchUserSession);
+
+// Watch for route changes to /dashboard and refetch session data
+watch(
+  () => router.currentRoute.value.path,
+  (newPath) => {
+    if (newPath === '/dashboard' || newPath === '/auth/login') {
+      fetchUserSession();
+    }
+  },
+  { immediate: true }
+);
 </script>
 
 <style scoped>
