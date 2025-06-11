@@ -3,9 +3,9 @@
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="flex flex-col lg:flex-row items-center">
         <!-- Left Content -->
-        <div class="w-1/2 mb-12 lg:mb-0 lg:pr-12 relative">
+        <div class="w-full lg:w-1/2 mb-12 lg:mb-0 lg:pr-12 relative">
           <!-- Title -->
-          <h2 class="text-4xl md:text-4xl font-bold text-[#723E29] mb-6 whitespace-nowrap">
+          <h2 class="text-4xl md:text-4xl font-bold text-[#723E29] mb-6 lg:whitespace-nowrap">
             Barista Dengan Layanan Prima
           </h2>
           
@@ -15,8 +15,13 @@
           </p>
           
           <!-- Features -->
-          <div class="space-y-6 grid grid-cols-3 gap-2 max-w-fit">
-            <div v-for="(feature, index) in features" :key="index" class="flex flex-col items-center bg-white px-4 py-2 rounded-lg max-h-fit">
+          <div class="features-item grid grid-cols-2 items-center lg:grid-cols-3 gap-2 lg:max-w-fit mb-4">
+            <div 
+              v-for="(feature, index) in features" 
+              :key="index" 
+              class="flex flex-col items-center bg-white px-4 py-2 rounded-lg max-h-fit"
+              :class="{ 'col-span-2': index === 2 }"
+            >
               <!-- Icon -->
               <div class="flex-shrink-0">
                 <img :src="feature.icon" :alt="feature.title" class="w-12 h-12">
@@ -33,8 +38,8 @@
         </div>
         
         <!-- Right Image -->
-        <div class="absolute right-24 top-1/2 transform -translate-y-1/2">
-          <div class="relative ">
+        <div class="relative w-full md:w-auto mt-80 lg:mt-0 lg:absolute right-24 top-1/2 transform -translate-y-1/2">
+          <div class="absolute md:relative top-[-400px] md:top-0 right-0 ">
             <!-- Main Image -->
             <img
               :src="featuredBarista"
@@ -48,7 +53,7 @@
             <div class="absolute top-0 -right-[80px] h-full aspect-square bg-[#CCA387] opacity-40 rounded-full z-[-1]"></div>
             
             <!-- Stats -->
-            <div class="absolute bottom-6 right-[250px] bg-white rounded-2xl shadow-lg p-4 w-40">
+            <div class="absolute bottom-56 lg:bottom-6 right-36 lg:right-[250px] bg-white rounded-2xl shadow-lg p-4 w-40">
               <p class="text-3xl font-bold text-[#723E29] text-center">100+</p>
               <p class="text-sm text-[#5D4037] text-center">Barista Berpengalaman</p>
             </div>

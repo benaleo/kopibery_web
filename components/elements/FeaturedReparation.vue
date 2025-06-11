@@ -1,19 +1,19 @@
 <template>
   <section class="relative w-full">
     <!-- Left Image -->
-    <div class="absolute left-4 top-0">
+    <div class="hidden lg:block lg:absolute left-4 top-0">
       <!-- Decorative Element -->
       <div class="absolute bottom-0 left-0 h-[60%] aspect-video bg-[#CCA387] opacity-40 rounded-2xl z-[-1]"></div>
-      <img :src="engineer1Image" alt="Featured Reparation" class="ml-4 w-full h-auto max-h-[200px] rounded-2xl" />
+      <img :src="engineer1Image" alt="Featured Reparation" class="ml-4 w-auto lg:w-full h-auto max-h-[200px] rounded-2xl" />
     </div>
 
     <!-- Right Image -->
-    <div class="absolute right-4 top-1/2 transform -translate-y-1/2">
+    <div class="hidden lg:block lg:absolute right-4 top-1/2 transform -translate-y-1/2">
       <div class="absolute bottom-0 right-0 h-[60%] aspect-video bg-[#CCA387] opacity-40 rounded-2xl z-[-1]"></div>
       <img :src="engineer2Image" alt="Featured Reparation" class="mr-4 w-full h-auto max-h-[200px] rounded-2xl" />
     </div>
 
-    <div class="lg:max-w-[60vw] mx-auto flex justify-center items-center">
+    <div class="lg:max-w-[60vw] mx-auto flex justify-center items-center px-4 lg:px-0">
       <div class="flex flex-col items-center">
         <p class="title">
           Perbaiki Alat Dengan Aman

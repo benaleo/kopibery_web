@@ -9,8 +9,8 @@
       </p>
 
       <!-- Product Cards Section with Background -->
-      <div class="relative z-0">
-        <div class="absolute inset-x-0 bottom-0 z-[-1] flex items-center justify-center">
+      <div class="relative z-0 overflow-hidden py-12">
+        <div class="absolute inset-x-0 h-[900px] md:h-auto bottom-0 z-[-1] flex items-center justify-center">
           <img 
             :src="featuredProductBg" 
             alt="featured-product-bg"
@@ -20,7 +20,7 @@
         </div>
 
         <!-- Product Cards -->
-        <div class="flex flex-row justify-center items-end gap-8 lg:gap-12 pb-12 relative z-10">
+        <div class="flex flex-col lg:flex-row justify-center items-center lg:items-end gap-8 lg:gap-12 pb-12 relative z-10">
           <div v-for="(product, index) in products" :key="index" class="flex flex-col items-center">
             <!-- Product Image with Circle Background -->
             <div class="relative mb-4">

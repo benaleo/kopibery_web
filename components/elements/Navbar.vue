@@ -1,7 +1,7 @@
 <template>
   <nav class="fixed top-0 left-0 right-0 bg-[#FCF9F8] z-20 shadow-sm">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="flex justify-between h-16">
+      <div class="relative flex justify-between h-16">
         <!-- Logo -->
         <div class="flex-shrink-0 flex items-center">
           <NuxtLink to="/" class="flex gap-2 items-center">
@@ -38,7 +38,7 @@
         </div>
 
         <!-- Login/Signup Button -->
-        <div class="flex items-center">
+        <div class="hidden lg:flex items-center">
           <NuxtLink
             v-if="!isLoggedIn"
             to="/auth"
@@ -55,7 +55,7 @@
     </div>
 
     <!-- Mobile menu button -->
-    <div class="md:hidden flex items-center justify-end pr-4 pb-2">
+    <div class="md:hidden absolute inset-y-0 right-0 flex items-center justify-end pr-4 pb-2">
       <button class="text-gray-500 hover:text-gray-900 focus:outline-none">
         <svg
           class="h-6 w-6"

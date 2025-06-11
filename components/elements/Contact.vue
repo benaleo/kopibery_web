@@ -1,12 +1,12 @@
 <template>
   <section class="relative w-full mt-12 bg-[#E9D2CA] rounded-lg mb-16">
   <!-- Image Left -->
-  <div class="absolute left-0 top-1/2 transform -translate-y-1/2">
+  <div class="hidden lg:block absolute left-0 top-1/2 transform -translate-y-1/2">
     <img src="@/assets/images/contact-left.png" alt="Contact" class="w-full h-auto max-h-[300px] rounded-2xl" />
   </div>
 
   <!-- Image Right -->
-  <div class="absolute right-0 bottom-0">
+  <div class="absolute right-0 bottom-0 opacity-30 lg:opacity-100">
     <img src="@/assets/images/contact-right.png" alt="Contact" class="w-full h-auto max-h-[200px] rounded-2xl" />
   </div>
     <div class="container mx-auto">

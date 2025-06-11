@@ -1,5 +1,5 @@
 <template>
-  <div class="relative w-full h-56 bg-black rounded-t-[80px]">
+  <div class="hidden md:relative w-full h-56 bg-black rounded-t-[80px]">
     <div
       class="max-w-[1360px] flex justify-between items-start mx-auto pt-12 px-12 overflow-hidden"
     >

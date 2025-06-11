@@ -32,11 +32,11 @@
           <img
             :src="about1Image"
             alt="About"
-            class="flex-1 h-auto"
+            class=" lg:relative flex-1 max-w-[300px] h-auto opacity-20 lg:opacity-100"
           />
         </div>
       </div>
-      <div class="flex justify-between px-4 py-8 space-x-8">
+      <div class="flex flex-col lg:flex-row items-center justify-between px-4 py-8 gap-2">
         <img
           v-for="(image, index) in imageList"
           :key="index"

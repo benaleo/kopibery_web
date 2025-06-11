@@ -15,7 +15,7 @@
         fill-rule="evenodd"
       ></path>
     </svg>
-    Kirim pesan via Whatsapp
+    <span class="hidden lg:block">Kirim pesan via Whatsapp</span>
   </button>
 </template>
 
